@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+// Function to calculate Greatest Common Divisor
+int gcd(int a, int b) {
+    if (b == 0)
+        return a;
+    return gcd(b, a % b);
+}
+
+// Function to calculate Euler's Totient Function
+int phi(unsigned int n) {
+    unsigned int result = n;
+    for (unsigned int p = 2; p * p <= n; ++p) {
+        // Check if p is a prime factor
+        if (n % p == 0) {
+            // Apply the formula result = result * (1 - 1/p)
+            while (n % p == 0)
+                n /= p;
+            result -= result / p;
+        }
+    }
+    // If n has a prime factor greater than sqrt(n)
+    if (n > 1)
+        result -= result / n;
+    return result;
+}
+
+int main() {
+    int t;
+    if (scanf("%d", &t) != 1) return 0;
+    while (t--) {
+        unsigned int n;
+        if (scanf("%u", &n) == 1) {
+            printf("%d\n", phi(n));
+        }
+    }
+    return 0;
+}
