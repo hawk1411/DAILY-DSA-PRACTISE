@@ -1,0 +1,16 @@
+class Solution {
+  public:
+    vector<int> remDuplicate(vector<int>& arr) {
+        
+        unordered_set<int> seen;
+        int index = 0;
+        for(int x : arr){
+            if(seen.find(x) == seen.end()){
+                seen.insert(x);//will help in further comparison
+                arr[index++] = x; // the thing is first index would be used then ++ would occur
+            }
+        }
+        arr.resize(index);
+        return arr;
+    } 
+};
