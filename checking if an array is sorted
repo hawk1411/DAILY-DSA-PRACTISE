@@ -1,0 +1,15 @@
+class Solution {
+  public:
+    bool isSorted(vector<int>& arr) {
+        // code here
+       int n = arr.size();
+       //int s = arr[0]; so becuse of negative cases we cant take this and do arr[i] < arr[i-1]
+       for(int i = 1;i<n;i++){
+           if(arr[i-1]>arr[i]){
+               return false;
+           }
+           
+       }
+       return true;
+    }
+};
