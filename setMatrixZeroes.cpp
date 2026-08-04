@@ -1,0 +1,98 @@
+class Solution {
+  public:
+    void setMatrixZeroes(vector<vector<int>> &mat) {
+        // code here
+        
+        bool first_row = false;
+        bool first_column  = false;
+        
+        int m = mat.size();
+        int n = mat[0].size();
+        
+        
+        for(int i=0;i<n;i++){
+            if(mat[0][i]==0){
+                first_row = true;
+            }
+        }
+        
+        for(int i=0;i<m;i++){
+            if(mat[i][0]==0){
+                first_column = true;
+            }
+        }
+        
+        for(int i=1;i<m;i++){
+            for(int j=1;j<n;j++){
+                if(mat[i][j]==0){
+                    mat[i][0]=0;
+                    mat[0][j]=0;
+                }
+            }
+        }
+        
+        for(int i=1;i<m;i++){
+            for(int j=1;j<n;j++){
+                if(mat[0][j]==0||mat[i][0]==0){
+                    mat[i][j]=0;
+                }
+            }
+        }
+        
+        if(first_row){
+            for(int j=0;j<n;j++){
+                mat[0][j]=0;
+            }
+        }
+        
+        if(first_column){
+            for(int j=0;j<m;j++){
+                mat[j][0]=0;
+            }
+        }
+    //   bool first_row = false;
+    //   bool first_colm = false;
+        
+    //     int m = mat.size();
+    //     int n = mat[0].size();
+        
+    //     for(int i=0;i<n;i++){
+    //         if(mat[0][i] ==0){
+    //             first_row = true;
+    //         }
+    //     }
+    //     for(int i=0;i<m;i++){
+    //         if(mat[i][0] ==0){
+    //             first_colm = true;
+    //         }
+    //     }
+        
+    //     for(int i=1;i<m;i++){
+    //         for(int j=1;j<n;j++){
+    //             if(mat[i][j]==0){
+    //                 mat[i][0]=0;
+    //                 mat[0][j]=0;
+    //             }
+    //         }
+    //     }//marking of the rows and coulm other than the first row and forst column noticefor this too we have beeen using 0th row and 0th column
+        
+    //     for(int i=1;i<m;i++){
+    //         for(int j=1;j<n;j++){
+    //             if(mat[i][0]==0||mat[0][j]==0){
+    //                 mat[i][j]=0;
+    //             }
+    //         }
+    //     }
+        
+    //     if(first_row){
+    //         for(int i=0;i<n;i++){
+    //             mat[0][i]=0;
+    //         }
+    //     }
+    //     if(first_colm){
+    //         for(int i=0;i<m;i++){
+    //             mat[i][0]=0;
+    //         }
+    //     }
+    }
+};
